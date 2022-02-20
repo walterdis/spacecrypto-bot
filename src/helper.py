@@ -25,27 +25,28 @@ def handlePopup(screen=None):
         screen = printSreen()
 
     if(hasImage('close-button.png', 0.7, screen)):
-        clickDestinationImage(
-            'close-button.png', 'close-button')
+        clickDestinationImage('close-button.png')
 
     handleConfirm(screen)
     handleAfterBattleConfirm(screen)
 
 
+def handleClose(screen=None):
+    if(hasImage('close-button.png', 0.7, screen)):
+        clickDestinationImage('close-button.png', 1, 0.7)
+
+
 def handleConfirm(screen=None):
     if(hasImage('confirm-button.png', 0.65, screen)):
-        clickDestinationImage(
-            'confirm-button.png', 'confirm-button', 1, 0.65)
+        clickDestinationImage('confirm-button.png', 1, 0.65)
 
 
 def handleAfterBattleConfirm(screen=None):
     if(hasImage('after-battle-confirm-button.png', 0.65, screen)):
-        clickDestinationImage(
-            'after-battle-confirm-button.png', 'after-battle-confirm-button', 0.5, 0.65)
+        clickDestinationImage('after-battle-confirm-button.png', 0.5, 0.65)
 
     if(hasImage('after-battle-confirm-button2.png', 0.65, screen)):
-        clickDestinationImage(
-            'after-battle-confirm-button2.png', 'after-battle-confirm-button', 0.5, 0.65)
+        clickDestinationImage('after-battle-confirm-button2.png', 0.5, 0.65)
 
 
 def moveDestination(x, y, time=2):
@@ -58,10 +59,7 @@ def clickDestination(x, y, duration=2):
     pyautogui.click()
 
 
-def clickDestinationImage(img, name=None, timeout=2, threshold=0.7):
-    if not name is None:
-        pass
-
+def clickDestinationImage(img, timeout=2, threshold=0.7):
     start = time.time()
     while(True):
         matches = getImagePositions(img, threshold)

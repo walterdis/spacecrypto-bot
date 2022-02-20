@@ -41,18 +41,12 @@ time.sleep(3)
 
 
 def main():
-
-    time.sleep(1)
-
-    start = time.time()
     while True:
         helper.handleConfirm()
         helper.handleAfterBattleConfirm()
         helper.handlePopup()
 
-
         screen = helper.printSreen()
-        
         if(isLoginScreen(screen)):
             print('Login screen found!!!')
             login.doLogin()
@@ -65,9 +59,9 @@ def main():
             helper.handleConfirm()
 
         battle.handle()
-            
+
         helper.handleAfterBattleConfirm()
-        helper.clickDestinationImage('play-button.png', 'play-button', 2)
+        helper.clickDestinationImage('play-button.png', 2)
 
         print('waiting ...')
 
@@ -78,5 +72,6 @@ def isLoginScreen(screen):
     positions = helper.getImagePositions('connect-wallet.png', 0.7, screen)
 
     return len(positions) > 0
+
 
 main()

@@ -16,15 +16,15 @@ def doLogin():
 
         return
 
-    if clickDestinationImage('connect-wallet.png', name='connect-wallet-btn', timeout=10):
+    if clickDestinationImage('connect-wallet.png', timeout=10):
         print('Logging in!')
 
         login_attempts = login_attempts + 1
 
-    if clickDestinationImage('wallet-sign.png', name='sign button', timeout=8):
+    if clickDestinationImage('wallet-sign.png', timeout=15):
         login_attempts = login_attempts + 1
 
-        if clickDestinationImage('play-button.png', name='play-button', timeout=15):
+        if clickDestinationImage('play-button.png', timeout=20):
             login_attempts = 0
 
         return
